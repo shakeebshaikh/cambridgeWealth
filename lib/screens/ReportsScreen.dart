@@ -1,3 +1,4 @@
+import 'package:cambridge/screens/portfolioSummaryScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -99,21 +100,52 @@ class _ReportsScreenState extends State<ReportsScreen> {
         }
         return Container(
           width: double.infinity,
-            child: const Row(
-              children: [
-                Column(
-                  children: [
-                    Text('Cambridge wealth Logo'),
-                    ListTile(
-                     title: Icon(Icons.shield), 
-                     subtitle: Text('Investments'),
-                    )
-                    ],
-                ),
-              ],
+          child: const Row(
+            children: [
+              Column(
+                children: [
+                  Text('Cambridge wealth Logo'),
+                  ListTile(
+                    title: Icon(Icons.shield),
+                    subtitle: Text('Investments'),
+                  )
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildReportOption(String title, String subtitle) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(8.0),
+        border: Border.all(color: Colors.blue),
+      ),
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.white),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: const TextStyle(
+              color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+        ),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return PortfolioSummaryScreen(title);
+              },
             ),
           );
-      },
+        },
+      ),
     );
   }
 }
@@ -147,29 +179,6 @@ Widget _buildGeneratedReportCard(
           ),
         ],
       ),
-    ),
-  );
-}
-
-Widget _buildReportOption(String title, String subtitle) {
-  return Container(
-    margin: const EdgeInsets.symmetric(vertical: 8.0),
-    decoration: BoxDecoration(
-      color: Colors.black,
-      borderRadius: BorderRadius.circular(8.0),
-      border: Border.all(color: Colors.blue),
-    ),
-    child: ListTile(
-      title: Text(
-        title,
-        style: const TextStyle(color: Colors.white),
-      ),
-      subtitle: Text(
-        subtitle,
-        style: const TextStyle(
-            color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
-      ),
-      onTap: () {},
     ),
   );
 }
