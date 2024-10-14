@@ -52,16 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Reports Centre'),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return const PortfolioSummaryScreen();
-                  },
-                ));
-              },
-              child: const Text('Portfolio Summary'),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //       builder: (context) {
+            //         return const PortfolioSummaryScreen();
+            //       },
+            //     ));
+            //   },
+            //   child: const Text('Portfolio Summary'),
+            // ),
           ],
         ),
       ),
