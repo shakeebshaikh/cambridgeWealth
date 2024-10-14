@@ -1,3 +1,4 @@
+import 'package:cambridge/screens/pdfViewerScreen.dart';
 import 'package:flutter/material.dart';
 
 class PortfolioSummaryScreen extends StatefulWidget {
@@ -45,26 +46,33 @@ class _PortfolioSummaryScreenState extends State<PortfolioSummaryScreen> {
             _buildReportOption('Since Inception'),
             const Divider(color: Colors.grey),
             const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.all(8),
-              height: 200,
-              width: 350,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
+            InkWell(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const PdfViewerScreen();
+                },));
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                height: 200,
+                width: 350,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 1,
+                  ),
                 ),
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Portfolio Summary Sharma Family'),
-                      Icon(Icons.chevron_right)
-                    ],
-                  )
-                ],
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Portfolio Summary Sharma Family'),
+                        Icon(Icons.chevron_right)
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],
